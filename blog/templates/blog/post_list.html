@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>All Blog Posts</h2>
+    
+    {% if posts %}
+        <ul>
+        {% for post in posts %}
+            <li>
+                <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                <p>Published: {{ post.created_date }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts yet. <a href="{% url 'post_new' %}">Create the first one!</a></p>
+    {% endif %}
+    
+    <p><a href="{% url 'post_new' %}">Add New Post</a></p>
+{% endblock %}

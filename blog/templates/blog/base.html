@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mindset-Growth Blog</title>
+</head>
+<body>
+    <header>
+        <h1>Mindset-Growth Blog</h1>
+        <nav>
+            <a href="{% url 'post_list' %}">Home</a> | 
+            <a href="{% url 'post_new' %}">New Post</a>
+        </nav>
+        <hr>
+    </header>
+    
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <hr>
+        <p>Simple Django Blog</p>
+    </footer>
+</body>
+</html>
