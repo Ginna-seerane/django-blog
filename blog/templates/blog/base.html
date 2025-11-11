@@ -2,25 +2,27 @@
 <html>
 <head>
     <title>Mindset-Growth Blog</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
 </head>
 <body>
-    <header>
-        <h1>Mindset-Growth Blog</h1>
-        <nav>
-            <a href="{% url 'post_list' %}">Home</a> | 
-            <a href="{% url 'post_new' %}">New Post</a>
-        </nav>
-        <hr>
-    </header>
-    
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-    
-    <footer>
-        <hr>
-        <p>Simple Django Blog</p>
-    </footer>
+    <div class="container">
+        <header class="header">
+            <h1>Mindset-Growth Blog</h1>
+            <nav class="nav">
+                <a href="{% url 'post_list' %}" class="nav-link">Home</a>
+                <a href="{% url 'post_new' %}" class="nav-link">New Post</a>
+            </nav>
+        </header>
+        
+        <main class="main-content">
+            {% block content %}
+            {% endblock %}
+        </main>
+        
+        <footer class="footer">
+            <p>&copy; 2025 Mindset-Growth Blog</p>
+        </footer>
+    </div>
 </body>
 </html>
