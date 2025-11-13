@@ -1,16 +1,20 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<div class="post-detail">
-    <h2>{{ post.title }}</h2>
-    <div class="post-meta">
-        <strong>Published:</strong> {{ post.created_date|date:"F j, Y" }}
-    </div>
+<article class="post-detail">
+    <header class="post-detail-header">
+        <h1>{{ post.title }}</h1>
+        <div class="post-detail-meta">
+            <span class="post-date">Published on {{ post.created_date|date:"F j, Y" }}</span>
+        </div>
+    </header>
     
     <div class="post-content">
         {{ post.content|linebreaks }}
     </div>
     
-    <a href="{% url 'post_list' %}" class="btn">Back to all posts</a>
-</div>
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="{% url 'post_list' %}" class="btn-secondary">← Back to all posts</a>
+    </div>
+</article>
 {% endblock %}

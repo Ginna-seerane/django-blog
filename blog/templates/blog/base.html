@@ -4,14 +4,26 @@
     <title>Mindset-Growth Blog</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="background-animation">
+        <div class="gradient-ball ball-1"></div>
+        <div class="gradient-ball ball-2"></div>
+        <div class="gradient-ball ball-3"></div>
+    </div>
+    
     <div class="container">
         <header class="header">
-            <h1>Mindset-Growth Blog</h1>
+            <h1>Mindset-Growth</h1>
+            <p class="header-tagline">Where ideas evolve and perspectives transform</p>
             <nav class="nav">
-                <a href="{% url 'post_list' %}" class="nav-link">Home</a>
-                <a href="{% url 'post_new' %}" class="nav-link">New Post</a>
+                <a href="{% url 'post_list' %}" class="nav-link">
+                 Home
+                </a>
+                <a href="{% url 'post_new' %}" class="nav-link">
+                 New Post
+                </a>
             </nav>
         </header>
         
@@ -21,7 +33,10 @@
         </main>
         
         <footer class="footer">
-            <p>&copy; 2025 Mindset-Growth Blog</p>
+            <div class="footer-content">
+                <p>&copy; 2025 Mindset-Growth • Premium Blog Experience</p>
+                <p>Elevating thoughts, one post at a time</p>
+            </div>
         </footer>
     </div>
 </body>

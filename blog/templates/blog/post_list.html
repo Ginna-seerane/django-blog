@@ -1,24 +1,34 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<div class="post-list">
-    <h2>All Blog Posts</h2>
-    
-    {% if posts %}
-        <ul>
-        {% for post in posts %}
-            <li>
-                <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
-                <p class="post-date">Published: {{ post.created_date|date:"F j, Y" }}</p>
-            </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <div class="empty-state">
-            <p>No posts yet. <a href="{% url 'post_new' %}">Create the first one!</a></p>
-        </div>
-    {% endif %}
-    
-    <a href="{% url 'post_new' %}" class="btn">Add New Post</a>
+<div class="section-header">
+    <h2>Latest Insights</h2>
+    <p class="section-subtitle">Discover articles to help you grow personally and professionally</p>
 </div>
+
+{% if posts %}
+    <ul class="post-grid">
+    {% for post in posts %}
+        <li class="post-card">
+            <div class="post-card-header">
+                <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                <div class="post-meta">
+                    <span class="post-date">{{ post.created_date|date:"F j, Y" }}</span>
+                </div>
+            </div>
+            <p class="post-excerpt">{{ post.content|truncatewords:30 }}</p>
+            <a href="{% url 'post_detail' pk=post.pk %}" class="post-read-more">
+                Read More →
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <div class="empty-state">
+        <div></div>
+        <h3>No posts yet</h3>
+        <p>Be the first to share your insights and start the conversation.</p>
+        <a href="{% url 'post_new' %}" class="btn-primary">Create First Post</a>
+    </div>
+{% endif %}
 {% endblock %}
